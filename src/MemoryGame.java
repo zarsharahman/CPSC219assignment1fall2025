@@ -29,6 +29,15 @@ public class MemoryGame {
         revealed = new boolean[ROWS][COLS];
         //initialization done
         // 2. Missing some code here
+        int pairs = (ROWS * COLS) / 2; //how many pairs of symbols are needed
+        char[] pool = new char[ROWS * COLS];//creates a character array called pool that can hold exactly as many characters as needed
+        int k = 0;
+        for (int p = 0; p < pairs; p++) {
+            char sym = (char) ('A' + p);
+            pool[k++] = sym;
+            pool[k++] = sym;  //loop runs once every pair
+        }
+        //built pool: A,A,B,B,C,C,....
 
         // 3. Shuffle pairs into the grid
         for (int i = 0; i < ROWS * COLS; i++) {
