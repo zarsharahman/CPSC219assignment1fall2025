@@ -87,6 +87,7 @@ public class MemoryGame {
             }
 
             // 8. Increment turns taken
+            turnsTaken++; //count turn done
 
         }
 
@@ -97,8 +98,25 @@ public class MemoryGame {
 
     // === 9. Print the grid ===
     static void printBoard() {
+        //column headers
+        System.out.print("   ");
+        for (int c = 0; c < COLS; c++) System.out.print(c + " ");
+        System.out.println();
 
-    }
+        //Separator
+        System.out.print("    ");
+        for (int c = 0; c < COLS; c++) System.out.print("- ");
+        System.out.println();
+        //Rows
+        for (int r = 0; r < ROWS; r++) {
+            System.out.printf("%2d | ", r);
+            for (int c = 0; c < COLS; c++) {
+                System.out.print(revealed[r][c] ? (boardValues[r][c] + " ") : "* ");
+            }
+            System.out.println();
+        }
+
+    }//print grid done
 
     // === 10. Print the solution ===
     // When debugging
