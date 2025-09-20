@@ -5,13 +5,14 @@ public class MemoryGame {
 
     // == Global Variables ==
     // 1. Fix these (initialize them)
-    static final int ROWS;
-    static final int COLS;
-    static char[][] boardValues;
+    static final int ROWS=4; //fixed 4x4 per base spec
+    static final int COLS=4;
+    static char[][] boardValues; //actual symbols (A,B,C,...)
     static boolean[][] revealed;
     static Scanner scanner = new Scanner(System.in);
-    static int turnsTaken;
+    static int turnsTaken;  //increments per turn
     static final boolean DEBUG = false;
+    static final Random rng= new Random();
 
     public static void main(String[] args) {
         initializeGame();
