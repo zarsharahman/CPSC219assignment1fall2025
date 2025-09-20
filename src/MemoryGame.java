@@ -121,7 +121,14 @@ public class MemoryGame {
     // === 10. Print the solution ===
     // When debugging
     static void printSolution() {
-
+        System.out.print("    ");// Print leading spaces, then column headers (0,1,2,...)
+        for (int c = 0; c < COLS; c++) System.out.print(c + " ");
+        System.out.println();
+        for (int r = 0; r < ROWS; r++) { // Loop through each row of the board
+            System.out.printf("%2d | ", r);// Print the row label on the left
+            for (int c = 0; c < COLS; c++) System.out.print(boardValues[r][c] + " ");// Print every symbol in this row
+            System.out.println();// End the row, move to the next line
+        }
     }
 
     // === 11. Get and validate coordinates ===
