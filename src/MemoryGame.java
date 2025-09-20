@@ -41,12 +41,23 @@ public class MemoryGame {
 
         // 3. Shuffle pairs into the grid
         for (int i = 0; i < ROWS * COLS; i++) {
+            int j = rng.nextInt(i + 1); //picks a random index j between 0 and i (inclusive)
+            char tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;//swaps the character at position i with the character at position j
 
-        }
+        }  //used the fisher-yates shuffle to randomize the contents of the pool
 
         // 4. Fill the boardValues
+        k = 0;
+        for (int r = 0; r < ROWS; r++) {
+            for (int c = 0; c < COLS; c++) {//two nested loops go through every position in the board, row by row, column by column
+                boardValues[r][c] = pool[k++];//takes the next character from the shuffled pool array and places it into the 2D board at position[r][c]
+                revealed[r][c] = false;//initializes the state of each cell: false means the card is face down, when the player flips the card it will turn true
+            }
+        }
 
-    }
+        turnsTaken = 0;
+
+    }// Copy shuffled symbols to 2D board; start all hidden
 
     // === Main game loop ===
     static void playGame() {
