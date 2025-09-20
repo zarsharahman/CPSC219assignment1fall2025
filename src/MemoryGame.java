@@ -25,6 +25,9 @@ public class MemoryGame {
 
     // === Initialize the board with pairs ===
     static void initializeGame() {
+        boardValues = new char[ROWS][COLS];
+        revealed = new boolean[ROWS][COLS];
+        //initialization done
         // 2. Missing some code here
 
         // 3. Shuffle pairs into the grid
