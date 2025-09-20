@@ -66,11 +66,25 @@ public class MemoryGame {
             System.out.println("Turns taken: " + turnsTaken);
 
             // 5. Get first card
+            int[] first = promptHiddenCoord("Enter first card (row col): ");//prompt printed for the user
+            reveal(first);
+            printBoard();//first card done
 
 
             // 6. Get second card
+            int[] second = promptHiddenCoord("Enter second card (row col): ", first);//Prompts the player again, but this time for the second card
+            reveal(second);
+            printBoard();//cannot be the same cell and must be hidden
 
             // 7. Check for match
+            if (isMatch(first, second)) {
+                System.out.println("It's a match!");
+            } else {
+                System.out.println("No match… cards will flip back.");
+                waitForEnter();
+                hide(first);
+                hide(second);
+            }
 
             // 8. Increment turns taken
 
